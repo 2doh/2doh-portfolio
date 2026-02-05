@@ -1,35 +1,120 @@
-import React from "react";
+import React, { useState } from "react";
+import "./styles/css/reset.css";
+import "./styles/css/common.css";
 import styled from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
-import { Container, Section, SectionTitle } from "./components/Layout";
-import Profile from "./components/Profile";
-import ProjectCard from "./components/ProjectCard";
-import { profileData, projectData } from "./data/portfolioData";
 
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
+import Header from "./layout/Header";
+import HomeSectionWrap from "./layout/Home/HomeSectionWrap";
+import HomeTopSection from "./components/Home/HomeTopSection";
+import HomeBottomSection from "./components/Home/HomeBottomSection";
+
+/* 모달 스타일 */
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
 `;
 
+const ModalContent = styled.div`
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+`;
+
+const CloseBtn = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+// --- Main App ---
 function App() {
+  const [filter, setFilter] = useState("전체");
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <>
       <GlobalStyle />
-      <Container>
-        {/* 프로필 섹션 */}
-        <Profile data={profileData} />
+      <Header />
+      <HomeSectionWrap id="home">
+        <HomeTopSection />
+      </HomeSectionWrap>
 
-        {/* 프로젝트 섹션 */}
-        <Section>
-          <SectionTitle>Projects</SectionTitle>
-          <ProjectsGrid>
-            {projectData.map(project => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </ProjectsGrid>
-        </Section>
-      </Container>
+      <HomeSectionWrap id="projects">
+        <HomeBottomSection />
+      </HomeSectionWrap>
+
+      {/* 모달 구현 */}
+      {selectedProject && (
+        <ModalOverlay onClick={() => setSelectedProject(null)}>
+          <ModalContent onClick={e => e.stopPropagation()}>
+            <CloseBtn onClick={() => setSelectedProject(null)}>
+              &times;
+            </CloseBtn>
+            <h2>{selectedProject.title}</h2>
+            <p style={{ color: "#666", marginBottom: "20px" }}>
+              {selectedProject.description}
+            </p>
+
+            <h4>사용한 기술</h4>
+            <div style={{ display: "flex", gap: "5px", marginBottom: "20px" }}>
+              {selectedProject.stack.map(s => (
+                <span
+                  key={s}
+                  style={{
+                    background: "#eee",
+                    padding: "2px 8px",
+                    borderRadius: "4px",
+                  }}
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+
+            <div style={{ display: "flex", gap: "10px" }}>
+              {selectedProject.siteUrl && (
+                <a
+                  href={selectedProject.siteUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: "#007bff" }}
+                >
+                  🌐 Live Demo
+                </a>
+              )}
+              {selectedProject.githubUrl && (
+                <a
+                  href={selectedProject.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: "#333" }}
+                >
+                  🐙 GitHub
+                </a>
+              )}
+            </div>
+          </ModalContent>
+        </ModalOverlay>
+      )}
     </>
   );
 }
