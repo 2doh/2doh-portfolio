@@ -4,25 +4,6 @@ import "./css/common.css";
 
 const Globalstyle = createGlobalStyle`
 
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'BMJUA';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-}
-
-
 * {
   margin: 0px;
   padding: 0px;
@@ -52,19 +33,29 @@ html {
   overflow-x: hidden;
 }
 
-body,
-* {
-  font-family: "Inter", "Pretendard", "BMJUA";
-  font-weight: 300;
-  font-style: normal;
-  font-optical-sizing: auto;
-  background-color: #f8f9fa;
-  color: #333;
-}
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background-color: var(--color-bg-sub);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin: 0;
+  }
 
-/* a{
-  font-family : "BMJUA"
-} */
+:root {
+  --color-error: #f6532b;
+  --color-success: #b5f400;
+  --color-highlight: #d1ecff;
+  --color-accent-mint: #c6dbda;
+  --color-accent-coral: #ffc5bf;
+  --color-accent-lavender: #ecd5e3;
+  --color-accent-amber: #fae39d;
+  --color-accent-olive: #99aa8c;
+  --color-text-primary: #2a1b07;
+  --color-text-secondary: #374151;
+  --color-bg-white: #fff;
+  --color-bg-sub: #fcfaf7; 
+  --color-border: #eeeae5;
+}
 `;
 
 export default Globalstyle;

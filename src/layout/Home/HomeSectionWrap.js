@@ -9,6 +9,6 @@ export default HomeSectionWrap;
 
 const Section = styled.section`
   padding: 100px 5% 60px;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
 `;
