@@ -1,56 +1,42 @@
 import React from "react";
 import styled from "styled-components";
+import { profileData } from "../../data/portfolioData";
+import { Card, Grid } from "../../layout/Common/Layout";
+import ContactSection from "./ContactSection";
 
 const HomeTopSection = () => {
-  // 기술 숙련도 데이터 (필요에 따라 수정하세요)
-  const skillLevels = [
-    { name: "React", level: 90, color: "var(--color-accent-mint)" },
-    { name: "Javascript", level: 85, color: "var(--color-accent-amber)" },
-    {
-      name: "Styled Components",
-      level: 95,
-      color: "var(--color-accent-coral)",
-    },
-    { name: "TypeScript", level: 70, color: "var(--color-highlight)" },
-  ];
+  const profile = profileData;
 
   return (
     <Container>
-      {/* 1. 개인 소개 영역 */}
       <IntroBox>
-        <Greeting>안녕하세요, 도현입니다. 👋</Greeting>
+        <Greeting>안녕하세요, 이도현입니다.</Greeting>
         <Title>
-          사용자 중심의 가치를 만드는 <br /> 프론트엔드 개발자입니다.
+          발전하고 정진하는 <br /> 프론트엔드 개발자가 되고싶습니다.
         </Title>
-        <Description>
-          복잡한 문제를 단순하고 직관적인 UI로 풀어내는 과정에서 즐거움을
-          느낍니다. 최신 기술 트렌드를 빠르게 습득하며, 팀원들과의 원활한 소통을
-          통해 최고의 결과물을 만들어내고자 노력합니다.
-        </Description>
+        <Description>{profile.introduction}</Description>
       </IntroBox>
 
-      <ContentGrid>
-        {/* 2. 학력 및 교육 이력 */}
-        <InfoCard>
+      <ContactSection email={profile.email} github={profile.github} />
+
+      <Grid>
+        <Card>
           <SubTitle>🎓 Education</SubTitle>
           <HistoryList>
-            <HistoryItem>
-              <strong>OO대학교 (컴퓨터공학 전공)</strong>
-              <span>2018.03 - 2023.02</span>
-            </HistoryItem>
-            <HistoryItem>
-              <strong>부트캠프 프론트엔드 코스 6기</strong>
-              <span>2023.06 - 2023.12</span>
-              <p>- 리액트 심화 과정 및 협업 프로젝트 진행</p>
-            </HistoryItem>
+            {profile.education.map(edu => (
+              <HistoryItem key={edu.id}>
+                <strong>{edu.title}</strong>
+                <span>{edu.period}</span>
+                <p>{edu?.desc}</p>
+              </HistoryItem>
+            ))}
           </HistoryList>
-        </InfoCard>
+        </Card>
 
-        {/* 3. 테크 스택 & 숙련도 */}
-        <InfoCard>
+        <Card>
           <SubTitle>⚒️ Tech Skills</SubTitle>
           <SkillWrapper>
-            {skillLevels.map(skill => (
+            {profile.skills.map(skill => (
               <SkillItem key={skill.name}>
                 <SkillLabel>
                   <span>{skill.name}</span>
@@ -75,16 +61,22 @@ const HomeTopSection = () => {
               src="https://img.shields.io/badge/StyledComponents-DB7093?style=flat-square&logo=StyledComponents&logoColor=white"
               alt="sc"
             />
+            <img src="https://img.shields.io/badge/axios-A29E4?style=for-the-badge&logo=axios&logoColor=white" />
+            <img src="https://img.shields.io/badge/typescript-007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
+            <img
+              src="https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg"
+              width="50"
+              height="30"
+              alt="Zustand logo"
+            />
           </BadgeContainer>
-        </InfoCard>
-      </ContentGrid>
+        </Card>
+      </Grid>
     </Container>
   );
 };
 
 export default HomeTopSection;
-
-// --- Styled Components ---
 
 const Container = styled.div`
   display: flex;
@@ -92,9 +84,7 @@ const Container = styled.div`
   gap: 40px;
 `;
 
-const IntroBox = styled.div`
-  margin-bottom: 20px;
-`;
+const IntroBox = styled.div``;
 
 const Greeting = styled.span`
   background: var(--color-accent-lavender);
@@ -106,10 +96,12 @@ const Greeting = styled.span`
 `;
 
 const Title = styled.h1`
-  font-size: 2.8rem;
+  /* font-size: 2.8rem; */
+  font-size: clamp(2rem, 5vw, 3.2rem);
   color: var(--color-text-primary);
   margin: 15px 0;
-  line-height: 1.3;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   word-break: keep-all;
 `;
 
@@ -117,19 +109,6 @@ const Description = styled.p`
   font-size: 1.1rem;
   color: var(--color-text-secondary);
   max-width: 700px;
-`;
-
-const ContentGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-`;
-
-const InfoCard = styled.div`
-  background: var(--color-bg-white);
-  padding: 30px;
-  border-radius: 24px;
-  border: 1px solid var(--color-border);
 `;
 
 const SubTitle = styled.h3`
@@ -187,7 +166,7 @@ const SkillLabel = styled.div`
 const ProgressBar = styled.div`
   width: 100%;
   height: 8px;
-  background: var(--color-bg-sub);
+  background: var(--color-warm-gray);
   border-radius: 4px;
   overflow: hidden;
 `;

@@ -35,11 +35,20 @@ html {
 
 body {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-    background-color: var(--color-bg-sub);
+    /* background-color: var(--color-bg-sub); */
+    /* background: linear-gradient(135deg, var(--color-bg-white) 0%, var(--color-bg-sub) 100%);
+    background-attachment: fixed; */
     color: var(--color-text-primary);
     line-height: 1.6;
     margin: 0;
   }
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-text-primary), var(--color-accent-olive));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
 
 :root {
   --color-error: #f6532b;
@@ -55,6 +64,13 @@ body {
   --color-bg-white: #fff;
   --color-bg-sub: #fcfaf7; 
   --color-border: #eeeae5;
+  --color-deep-teal : #2d5a58;
+  --color-soft-blue: #E0E7FF;
+  --color-warm-gray: #F2EFED;
+  --color-vivid-orange: #FF8A65;
+  --color-muted-purple: #9A89A3;
+  --color-deep-brown: #4a3a2a;
+  --color-soft-green: #e2f0d9;
 }
 `;
 

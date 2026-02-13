@@ -1,7 +1,7 @@
 import { Wrap } from "../Common/Layout";
 
-const HomeSectionWrap = ({ children }) => {
+const ProjectWrap = ({ children }) => {
   return <Wrap>{children}</Wrap>;
 };
 
-export default HomeSectionWrap;
+export default ProjectWrap;
