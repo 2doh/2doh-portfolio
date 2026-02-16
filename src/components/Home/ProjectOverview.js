@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { flexCenter } from "../../styles/mixin";
 
 const ProjectOverview = ({ selectedProject, setSelectedProject }) => {
   return (
@@ -69,9 +70,7 @@ const ModalOverlay = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter}
   z-index: 2000;
   padding: 20px;
 `;
