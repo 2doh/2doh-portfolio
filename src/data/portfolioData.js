@@ -52,13 +52,14 @@ export const profileData = {
 export const projectData = [
   {
     id: 1,
-    category: "개인",
-    title: "포트폴리오 웹사이트",
-    description: "React와 Styled-components를 활용한 개인 포트폴리오입니다.",
-    stack: ["React", "StyledComponents", "Javascript"],
-    siteUrl: "https://example.com",
-    githubUrl: "https://github.com/2doh/portfolio",
+    category: "협업",
+    title: "Haesol",
+    description:
+      "영단어 학습과 성적 열람을 통한 초등학생 성적 관리 시스템입니다.",
+    stack: ["React", "Sass", "Web-Speech-API"],
+    githubUrl: "https://github.com/2doh/haesol",
     features: ["반응형 디자인", "카테고리 필터링 기능", "다크모드 지원 예정"],
+    img: "/assets/images/project1.png",
   },
   {
     id: 2,
@@ -69,5 +70,6 @@ export const projectData = [
     siteUrl: "https://example.com",
     githubUrl: "https://github.com/2doh/portfolio",
     features: ["반응형 디자인", "카테고리 필터링 기능", "다크모드 지원 예정"],
+    img: "/assets/images/project1.png",
   },
 ];
