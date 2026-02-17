@@ -124,5 +124,6 @@ const MenuLink = styled(NavLink)`
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(153, 170, 140, 0.2);
     border-radius: 4px;
+    transition: all 0.5s ease;
   }
 `;

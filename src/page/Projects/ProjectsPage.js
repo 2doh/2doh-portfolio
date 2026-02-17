@@ -1,9 +1,9 @@
 import { useState } from "react";
-import ProjectOverview from "../../components/Home/ProjectOverview";
 import ProjectCategory from "../../components/project/ProjectCategory";
 import ProjectsList from "../../components/project/ProjectsList";
 import { projectData } from "../../data/portfolioData";
 import ProjectWrap from "../../layout/project/ProjectWrap";
+import ProjectOverview from "../../components/project/ProjectOverview";
 
 const ProjectsPage = () => {
   const [filter, setFilter] = useState("전체");

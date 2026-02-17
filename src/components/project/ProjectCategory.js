@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ProjectCategory = ({ filter, setFilter }) => {
-  const categories = ["전체", "개인", "협업", "클론"];
+  const categories = ["전체", "협업", "개인", "클론"];
   return (
     <FilterBar>
       {categories.map(cate => (

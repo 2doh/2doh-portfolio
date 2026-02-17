@@ -120,7 +120,9 @@ const CategoryLabel = styled.span`
   background: ${props =>
     props.cate === "개인"
       ? "var(--color-accent-lavender)"
-      : "var(--color-accent-mint)"};
+      : props.cate === "협업"
+        ? "var(--color-accent-amber)"
+        : "var(--color-accent-mint)"};
   color: var(--color-text-primary);
   display: inline-block;
   margin-bottom: 12px;
