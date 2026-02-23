@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./layout/Header";
-import HomePage from "./page/Home/HomePage";
-import ProjectsPage from "./page/Projects/ProjectsPage";
-import GlobalStyle from "./styles/GlobalStyle";
 import ScrollToTop from "./layout/Common/ScrollToTop";
+import Header from "./layout/Header";
+import FeaturePage from "./page/feature/FeaturePage";
+import HomePage from "./page/home/HomePage";
+import ProjectsPage from "./page/projects/ProjectsPage";
+import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/features" element={<FeaturePage />} />
       </Routes>
     </BrowserRouter>
   );

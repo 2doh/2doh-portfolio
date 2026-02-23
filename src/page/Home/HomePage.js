@@ -1,16 +1,12 @@
-import HomeTopSection from "../../components/Home/HomeTopSection";
-import HomeSectionWrap from "../../layout/Home/HomeSectionWrap";
+import HomeTopSection from "../../components/home/HomeTopSection";
 import { profileData } from "../../data/portfolioData";
-import ContactSection from "../../components/Home/ContactSection";
+import HomeSectionWrap from "../../layout/home/HomeSectionWrap";
 
 const HomePage = () => {
-  const profile = profileData;
   return (
-    <>
-      <HomeSectionWrap>
-        <HomeTopSection />
-      </HomeSectionWrap>
-    </>
+    <HomeSectionWrap>
+      <HomeTopSection />
+    </HomeSectionWrap>
   );
 };
 

@@ -15,19 +15,17 @@ const ProjectsPage = () => {
       : projectData.filter(p => p.category === filter);
 
   return (
-    <>
-      <ProjectWrap>
-        <ProjectCategory filter={filter} setFilter={setFilter} />
-        <ProjectsList
-          filteredProjects={filteredProjects}
-          setSelectedProject={setSelectedProject}
-        />
-        <ProjectOverview
-          selectedProject={selectedProject}
-          setSelectedProject={setSelectedProject}
-        />
-      </ProjectWrap>
-    </>
+    <ProjectWrap>
+      <ProjectCategory filter={filter} setFilter={setFilter} />
+      <ProjectsList
+        filteredProjects={filteredProjects}
+        setSelectedProject={setSelectedProject}
+      />
+      <ProjectOverview
+        selectedProject={selectedProject}
+        setSelectedProject={setSelectedProject}
+      />
+    </ProjectWrap>
   );
 };
 

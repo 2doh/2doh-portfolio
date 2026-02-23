@@ -10,6 +10,7 @@ const Header = () => {
       <Nav>
         <MenuLink to="/">Home</MenuLink>
         <MenuLink to="/projects">Projects</MenuLink>
+        <MenuLink to="/features">Features</MenuLink>
       </Nav>
     </HeaderWrap>
   );
@@ -80,50 +81,11 @@ const MenuLink = styled(NavLink)`
   transition: all 0.3s ease;
   display: inline-block;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    border-top: 2px solid var(--color-accent-mint);
-    border-bottom: 2px solid var(--color-accent-mint);
-    transition: width 0.3s ease;
-    box-sizing: border-box;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    border-left: 2px solid var(--color-accent-mint);
-    border-right: 2px solid var(--color-accent-mint);
-    transition: height 0.3s ease;
-    box-sizing: border-box;
-    transition-delay: 0.1s;
-  }
-
-  &:hover::before,
-  &.active::before {
-    width: 100%;
-  }
-
-  &:hover::after,
-  &.active::after {
-    height: 100%;
-  }
-
   &:hover,
   &.active {
     color: var(--color-text-primary);
     background-color: var(--color-accent-mint);
-    border-radius: 4px;
     box-shadow: 0 0 10px rgba(153, 170, 140, 0.2);
-    border-radius: 4px;
     transition: all 0.5s ease;
   }
 `;
