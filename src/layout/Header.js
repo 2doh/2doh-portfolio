@@ -50,6 +50,9 @@ const LogoStyle = styled(Link)`
   white-space: nowrap;
   cursor: pointer;
   ${flexCenter}
+  background: linear-gradient(90deg, #222, var(--color-deep-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
   &:hover {
     animation: ${shake} 0.5s ease-out forwards;

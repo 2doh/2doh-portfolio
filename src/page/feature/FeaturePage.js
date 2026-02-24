@@ -1,10 +1,18 @@
+import FeatureCard from "../../components/feature/FeatureCard";
 import FeatureContainer from "../../components/feature/FeatureContainer";
+import FeatureHeader from "../../components/feature/FeatureHeader";
+import { featureData } from "../../data/portfolioData";
 import FeatureSectionWrap from "../../layout/feature/FeatureSectionWrap";
 
 const FeaturePage = () => {
   return (
     <FeatureSectionWrap>
-      <FeatureContainer></FeatureContainer>
+      <FeatureHeader />
+      <FeatureContainer>
+        {featureData.map(item => (
+          <FeatureCard item={item} key={item.id} />
+        ))}
+      </FeatureContainer>
     </FeatureSectionWrap>
   );
 };
