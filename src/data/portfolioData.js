@@ -44,7 +44,7 @@ export const profileData = {
     {
       name: "Zustand",
       level: 80,
-      color: "var(--color-soft-green)",
+      color: "var(--color-deep-teal)",
     },
   ],
 };

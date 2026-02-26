@@ -7,7 +7,7 @@ export const Wrap = styled.section`
 `;
 
 export const Card = styled.div`
-  background: var(--color-bg-white);
+  background: var(--color-bg);
   padding: 30px;
   border-radius: 24px;
   border: 1px solid var(--color-border);

@@ -19,7 +19,7 @@ const HeaderSection = styled.div`
     font-size: 2.5rem;
     font-weight: 900;
     margin-bottom: 16px;
-    background: linear-gradient(180deg, #000, var(--color-accent-mint));
+    background: linear-gradient(90deg, #000, var(--color-accent-mint));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

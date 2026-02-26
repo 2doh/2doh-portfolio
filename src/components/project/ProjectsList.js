@@ -44,7 +44,7 @@ const ProjectGrid = styled.div`
 `;
 
 const ProjectCard = styled.div`
-  background: var(--color-bg-white);
+  background: var(--color-bg);
   border-radius: 10px;
   border: 1px solid var(--color-border);
   overflow: hidden;
@@ -122,7 +122,7 @@ const CategoryLabel = styled.span`
       : props.cate === "협업"
         ? "var(--color-accent-amber)"
         : "var(--color-accent-mint)"};
-  color: var(--color-text-primary);
+  color: var(--color-text);
   display: inline-block;
   margin-bottom: 12px;
 `;

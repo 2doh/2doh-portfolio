@@ -88,7 +88,7 @@ const IntroBox = styled.div``;
 
 const Greeting = styled.span`
   background: var(--color-accent-lavender);
-  color: var(--color-text-primary);
+  color: var(--color-text);
   padding: 4px 12px;
   border-radius: 8px;
   font-weight: 600;

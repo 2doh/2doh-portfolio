@@ -81,7 +81,7 @@ const Badge = styled.span`
   border-radius: 10px;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 `;
@@ -90,7 +90,7 @@ const Title = styled.h2`
   font-size: 2rem;
   margin-top: 12px;
   line-height: 1.4;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   word-break: keep-all;
 `;
 
@@ -108,7 +108,7 @@ const CommonLink = styled.a`
   gap: 12px;
   padding: 14px 28px;
   border-radius: 16px;
-  background: var(--color-bg-white);
+  background: var(--color-bg);
   color: var(--color-text-primary);
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -125,7 +125,7 @@ const EmailLink = styled(CommonLink)`
 `;
 
 const GitHubLink = styled(CommonLink)`
-  background: var(--color-text-primary);
+  background: var(--color-text);
   color: white;
 `;
 
@@ -146,6 +146,6 @@ const Icon = styled.span`
 const FooterText = styled.p`
   margin-top: 20px;
   font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   opacity: 0.8;
 `;

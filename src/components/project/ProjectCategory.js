@@ -33,9 +33,9 @@ const FilterBtn = styled.button`
   border-radius: 5px;
   border: 1px solid var(--color-border);
   background: ${props =>
-    props.active ? "var(--color-text-primary)" : "var(--color-bg-white)"};
+    props.active ? "var(--color-text-primary)" : "var(--color-bg)"};
   color: ${props =>
-    props.active ? "var(--color-bg-white)" : "var(--color-text-primary)"};
+    props.active ? "var(--color-bg)" : "var(--color-text-primary)"};
   cursor: pointer;
   font-weight: 600;
   font-size: 0.9rem;

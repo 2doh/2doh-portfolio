@@ -91,7 +91,7 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background: var(--color-bg-white);
+  background: var(--color-bg);
   border-radius: 24px;
   max-width: 800px;
   width: 100%;
@@ -99,14 +99,6 @@ const ModalContent = styled.div`
   overflow-y: auto;
   position: relative;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: var(--color-accent-mint);
-    border-radius: 10px;
-  }
 `;
 
 const ModalHeader = styled.div`
@@ -139,7 +131,7 @@ const CategoryBadge = styled.span`
       : props.cate === "협업"
         ? "var(--color-accent-amber)"
         : "var(--color-accent-mint)"};
-  color: var(--color-text-primary);
+  color: var(--color-text);
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -213,13 +205,14 @@ const IconButton = styled.a`
   transition: all 0.3s;
   ${flexCenter}
   gap: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
   background: var(--color-bg-sub);
-  color: var(--color-text-primary);
+  color: var(--color-text);
 
   &.primary {
     background: var(--color-text-primary);
-    color: white;
+    color: var(--color-invert);
   }
 
   &:hover {

@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-const FeatureCard = ({ item }) => {
-  console.log(item);
+const FeatureCard = ({ item, onClick }) => {
   return (
-    <FeatureCardWrap>
+    <FeatureCardWrap onClick={onClick}>
       <div className="card-top">
         <span className="main-tag">{item.tag}</span>
         <span className="logic-tag">{item.logic}</span>
@@ -27,8 +26,10 @@ const FeatureCard = ({ item }) => {
 export default FeatureCard;
 
 const FeatureCardWrap = styled.div`
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  border: 1px solid
+    ${props =>
+      props.isActive ? "var(--color-accent-mint)" : "var(--color-border)"};
   border-radius: 10px;
   padding: 35px;
   min-height: 320px;
@@ -58,6 +59,7 @@ const FeatureCardWrap = styled.div`
     .logic-tag {
       font-size: 0.7rem;
       font-weight: 600;
+      color: var(--color-text-secondary);
     }
   }
 
@@ -84,7 +86,7 @@ const FeatureCardWrap = styled.div`
       align-items: center;
       gap: 10px;
       font-weight: 700;
-      color: var(--color-text-primary);
+      color: var(--color-text-secondary);
 
       .circle-arrow {
         width: 32px;
@@ -99,7 +101,6 @@ const FeatureCardWrap = styled.div`
     }
   }
 
-  /* Hover Effect */
   &:hover {
     transform: translateY(-12px);
     border-color: var(--color-accent-mint);
@@ -107,11 +108,7 @@ const FeatureCardWrap = styled.div`
 
     .circle-arrow {
       background: var(--color-accent-mint);
-      color: white;
       transform: rotate(-45deg);
     }
-
-    /* 배경에 살짝 테마 컬러 입히기 */
-    background: ${props => props.bgColor}10; /* 10% 투명도 */
   }
 `;
