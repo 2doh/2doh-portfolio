@@ -1,6 +1,7 @@
 import React from "react";
 import useBoardStore from "../../../store/useBoardState";
 import styled from "styled-components";
+import { useThemeStore } from "../../../store/useThemeStore";
 
 const COLORS = [
   { light: "#2a1b07", dark: "#f5f5f5", name: "Basic" },
@@ -11,8 +12,17 @@ const COLORS = [
 ];
 
 const BoardControl = () => {
-  const { tool, color, setTool, setColor, setLineWidth, lineWidth } =
-    useBoardStore();
+  const {
+    tool,
+    color,
+    setTool,
+    setColor,
+    setLineWidth,
+    lineWidth,
+    triggerClear,
+  } = useBoardStore();
+  const { isDarkMode } = useThemeStore();
+  const getThemeColor = c => (isDarkMode ? c.dark : c.light);
 
   return (
     <ControlWrap>
@@ -31,34 +41,25 @@ const BoardControl = () => {
         >
           🧽
         </IconButton>
+        <IconButton onClick={triggerClear} title="모두 지우기" isDelete>
+          🗑️
+        </IconButton>
       </ToolGroup>
 
       <Divider />
 
       <ColorGroup>
-        {COLORS.map(c => (
-          <ColorDot
-            key={c.light}
-            bgColor={
-              document.documentElement.getAttribute("data-theme") === "dark"
-                ? c.dark
-                : c.light
-            }
-            active={
-              color ===
-              (document.documentElement.getAttribute("data-theme") === "dark"
-                ? c.dark
-                : c.light)
-            }
-            onClick={() =>
-              setColor(
-                document.documentElement.getAttribute("data-theme") === "dark"
-                  ? c.dark
-                  : c.light,
-              )
-            }
-          />
-        ))}
+        {COLORS.map(c => {
+          const targetColor = getThemeColor(c);
+          return (
+            <ColorDot
+              key={c.light}
+              bgColor={targetColor}
+              active={color === targetColor}
+              onClick={() => setColor(targetColor)}
+            />
+          );
+        })}
       </ColorGroup>
 
       <Divider />
@@ -81,6 +82,8 @@ export default BoardControl;
 
 const ControlWrap = styled.div`
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 15px;
@@ -105,6 +108,10 @@ const IconButton = styled.button`
   background: ${props => props.active && "var(--color-accent-mint)"};
   font-size: 1.2rem;
   transition: all 0.2s;
+
+  &:hover {
+    background: ${props => props.isDelete && "#fee2e2"};
+  }
 `;
 
 const ColorGroup = styled.div`

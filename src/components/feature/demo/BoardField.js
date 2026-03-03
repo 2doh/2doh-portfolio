@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import useBoardStore from "../../../store/useBoardState";
 
 const BoardField = () => {
-  const { tool, color, lineWidth } = useBoardStore();
-  const cavasRef = useRef(null);
+  const { tool, color, lineWidth, clearAll } = useBoardStore();
+  const canvasRef = useRef(null);
+  const ctxRef = useRef(null);
+  const [isDrawing, setIsDrawing] = useState(false);
 
   useEffect(() => {
-    const canvas = cavasRef.current;
+    const canvas = canvasRef.current;
     if (!canvas) return;
 
     const parent = canvas.parentElement;
@@ -26,27 +28,74 @@ const BoardField = () => {
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.lientWidth = 3;
+    ctxRef.current = ctx;
   }, []);
 
-  const startDrawing = () => {};
+  const startDrawing = e => {
+    if (!ctxRef.current) return;
+    const { offsetX, offsetY } = e.nativeEvent;
+    ctxRef.current.beginPath();
+    ctxRef.current.moveTo(offsetX, offsetY);
+    setIsDrawing(true);
+  };
+
+  const draw = e => {
+    if (!isDrawing || ctxRef.current === null) return;
+
+    const { offsetX, offsetY } = e.nativeEvent;
+
+    requestAnimationFrame(() => {
+      if (!isDrawing) return;
+
+      const ctx = ctxRef.current;
+
+      ctx.lineTo(offsetX, offsetY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(offsetX, offsetY);
+    });
+  };
+
+  const stopDrawing = () => {
+    ctxRef.current.closePath();
+    setIsDrawing(false);
+  };
 
   useEffect(() => {
-    if (cavasRef.current) {
-      cavasRef.current.strokeStyle = color;
-      cavasRef.current.globalCompositeOperation =
+    if (ctxRef.current && canvasRef.current) {
+      const canvas = canvasRef.current;
+      const ctx = ctxRef.current;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }, [clearAll]);
+
+  useEffect(() => {
+    if (ctxRef.current) {
+      ctxRef.current.strokeStyle = color;
+      ctxRef.current.globalCompositeOperation =
         tool === "eraser" ? "destination-out" : "source-over";
-      cavasRef.current.lineWidth = lineWidth;
+      ctxRef.current.lineWidth = lineWidth;
     }
   }, [tool, color, lineWidth]);
 
   return (
     <CanvasField
-      ref={cavasRef}
+      ref={canvasRef}
+      cursor={tool}
       onMouseDown={e => {
         startDrawing(e);
       }}
-      onMouseMove={() => {}}
-      onMouseUp={() => {}}
+      onMouseMove={e => {
+        draw(e);
+      }}
+      onMouseUp={() => {
+        stopDrawing();
+      }}
+      onMouseLeave={() => {
+        stopDrawing();
+      }}
     />
   );
 };
