@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DarkModeDemo from "./DarkModeDemo";
 import { flexCenter } from "../../../styles/mixin";
+import WhiteBoardDemo from "./WhiteBoardDemo";
 
 const DemoWrapper = ({ selectedId, setSelectedId, selectedFeature }) => {
   return (
@@ -18,8 +19,7 @@ const DemoWrapper = ({ selectedId, setSelectedId, selectedFeature }) => {
 
       <div className="demo-content">
         {selectedId === 1 && <DarkModeDemo />}
-        {/* {selectedId === 4 && <SearchDemo />}
-        {selectedId === 5 && <CRUDDemo />} */}
+        {selectedId === 2 && <WhiteBoardDemo />}
       </div>
     </Wrapper>
   );
@@ -51,14 +51,12 @@ const Wrapper = styled.div`
     }
 
     .close-btn {
-      background: #f5f5f5;
+      background: var(--color-soft-blue);
       border: none;
       padding: 8px 16px;
       border-radius: 10px;
+      font-weight: 500;
       cursor: pointer;
-      &:hover {
-        background: #e0e0e0;
-      }
     }
   }
 

@@ -67,7 +67,7 @@ html {
 }
 [data-theme="dark"] {
   --color-bg : #121212;
-  --color-invert: #2a1b07;
+  --color-invert: #121212;
   --color-text-primary: #f5f5f5;
   --color-text-secondary: #aaaaaa;
   --color-border: #333333;

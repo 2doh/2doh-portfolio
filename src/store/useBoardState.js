@@ -1,0 +1,13 @@
+import { create } from "zustand";
+
+const useBoardStore = create(set => ({
+  tool: "pen",
+  color: "#2a1b07",
+  lineWidth: 3,
+
+  setTool: tool => set({ tool }),
+  setColor: color => set({ color, tool: "pen" }),
+  setLineWidth: width => set({ lineWidth: width }),
+}));
+
+export default useBoardStore;
