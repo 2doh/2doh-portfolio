@@ -1,7 +1,6 @@
-import React from "react";
-import useBoardStore from "../../../store/useBoardState";
 import styled from "styled-components";
-import { useThemeStore } from "../../../store/useThemeStore";
+import useBoardStore from "../../../../store/useBoardState";
+import { useThemeStore } from "../../../../store/useThemeStore";
 
 const COLORS = [
   { light: "#2a1b07", dark: "#f5f5f5", name: "Basic" },

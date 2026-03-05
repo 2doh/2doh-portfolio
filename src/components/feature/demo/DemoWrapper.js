@@ -2,9 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import DarkModeDemo from "./DarkModeDemo";
 import { flexCenter } from "../../../styles/mixin";
-import WhiteBoardDemo from "./WhiteBoardDemo";
+import WhiteBoardDemo from "./board/WhiteBoardDemo";
+import SpeechDemo from "./speech/SpeechDemo";
+import { useNavigate } from "react-router-dom";
 
-const DemoWrapper = ({ selectedId, setSelectedId, selectedFeature }) => {
+const DemoWrapper = ({ children, selectedFeature }) => {
+  const navigate = useNavigate();
+
+  if (!selectedFeature) {
+    return null;
+  }
+
+  const handleClose = () => {
+    navigate("/features");
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Wrapper>
       <div className="demo-header">
@@ -12,15 +26,12 @@ const DemoWrapper = ({ selectedId, setSelectedId, selectedFeature }) => {
           <span className="id-badge">#0{selectedFeature.id}</span>
           <h2>{selectedFeature.title} Demo</h2>
         </div>
-        <button onClick={() => setSelectedId(null)} className="close-btn">
+        <button onClick={() => handleClose()} className="close-btn">
           닫기
         </button>
       </div>
 
-      <div className="demo-content">
-        {selectedId === 1 && <DarkModeDemo />}
-        {selectedId === 2 && <WhiteBoardDemo />}
-      </div>
+      <div className="demo-content">{children}</div>
     </Wrapper>
   );
 };

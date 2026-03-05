@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import useBoardStore from "../../../store/useBoardState";
+import useBoardStore from "../../../../store/useBoardState";
+import { useThemeStore } from "../../../../store/useThemeStore";
 
 const BoardField = () => {
-  const { tool, color, lineWidth, clearAll } = useBoardStore();
+  const { tool, color, setColor, lineWidth, clearAll } = useBoardStore();
+  const { isDarkMode } = useThemeStore();
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -79,6 +81,12 @@ const BoardField = () => {
       ctxRef.current.lineWidth = lineWidth;
     }
   }, [tool, color, lineWidth]);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      setColor("#f5f5f5");
+    } else setColor("#2a1b07");
+  }, [isDarkMode]);
 
   return (
     <CanvasField

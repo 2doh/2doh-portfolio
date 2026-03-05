@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "word": "Apple",
+    "answer": "사과",
+    "listening": "Apple",
+    "sentence": "I ate a red apple.",
+    "pic": "https://images.unsplash.com/photo-1560806887-1e4cd0b6faa6?w=500&q=80"
+  },
+  {
+    "id": 2,
+    "word": "Bicycle",
+    "answer": "자전거",
+    "listening": "Bicycle",
+    "sentence": "He rides a bicycle to school.",
+    "pic": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&q=80"
+  },
+  {
+    "id": 3,
+    "word": "Library",
+    "answer": "도서관",
+    "listening": "Library",
+    "sentence": "We studied in the library.",
+    "pic": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=500&q=80"
+  },
+  {
+    "id": 4,
+    "word": "Umbrella",
+    "answer": "우산",
+    "listening": "Umbrella",
+    "sentence": "Don't forget your umbrella today.",
+    "pic": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=500&q=80"
+  },
+  {
+    "id": 5,
+    "word": "Mountain",
+    "answer": "산",
+    "listening": "Mountain",
+    "sentence": "The mountain is covered with snow.",
+    "pic": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500&q=80"
+  }
+]

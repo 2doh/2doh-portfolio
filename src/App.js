@@ -7,6 +7,9 @@ import ProjectsPage from "./page/projects/ProjectsPage";
 import GlobalStyle from "./styles/GlobalStyle";
 import { useThemeStore } from "./store/useThemeStore";
 import { useEffect } from "react";
+import DarkModeDemo from "./components/feature/demo/DarkModeDemo";
+import WhiteBoardDemo from "./components/feature/demo/board/WhiteBoardDemo";
+import SpeechDemo from "./components/feature/demo/speech/SpeechDemo";
 
 function App() {
   const isDarkMode = useThemeStore(state => state.isDarkMode);
@@ -26,7 +29,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/features" element={<FeaturePage />} />
+        <Route path="/features" element={<FeaturePage />}>
+          <Route path="darkmode" element={<DarkModeDemo />} />
+          <Route path="whiteboard" element={<WhiteBoardDemo />} />
+          <Route path="speech/:step" element={<SpeechDemo />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

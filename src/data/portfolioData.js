@@ -128,6 +128,7 @@ export const featureData = [
     tag: "Zustand",
     desc: "사용자 설정에 따라 전환되는 테마 시스템",
     logic: "Zustand & Persist",
+    path: "darkmode",
   },
   {
     id: 2,
@@ -135,6 +136,7 @@ export const featureData = [
     tag: "Canvas API",
     desc: "드로잉 기능을 갖춘 실시간 화이트보드",
     logic: "Coordinate Transformation",
+    path: "whiteboard",
   },
   {
     id: 3,
@@ -142,6 +144,7 @@ export const featureData = [
     tag: "Web Speech API",
     desc: "사용자의 음성을 인식하여 텍스트로 변환하고 정확도를 측정하는 기능",
     logic: "STT (Speech-to-Text)",
+    path: "speech",
   },
   {
     id: 4,
@@ -149,19 +152,20 @@ export const featureData = [
     tag: "Debounce",
     desc: "디바운싱 기반의 실시간 데이터 필터링 기능",
     logic: "Input Optimization",
+    path: "search",
   },
-  {
-    id: 5,
-    title: "CRUD",
-    tag: "Axios",
-    desc: "REST API 통신을 통해 데이터의 생성, 조회, 수정, 삭제가 즉각 반영되는 시스템",
-    logic: "Array Methods & UUID",
-  },
-  {
-    id: 6,
-    title: "Form Validation",
-    tag: "React Hook Form",
-    desc: "사용자 입력값을 정규표현식으로 검증하고 실시간 에러 메세지를 표기하는 UI",
-    logic: "UI Feedback",
-  },
+  // {
+  //   id: 5,
+  //   title: "CRUD",
+  //   tag: "Axios",
+  //   desc: "REST API 통신을 통해 데이터의 생성, 조회, 수정, 삭제가 즉각 반영되는 시스템",
+  //   logic: "Array Methods & UUID",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Form Validation",
+  //   tag: "React Hook Form",
+  //   desc: "사용자 입력값을 정규표현식으로 검증하고 실시간 에러 메세지를 표기하는 UI",
+  //   logic: "UI Feedback",
+  // },
 ];

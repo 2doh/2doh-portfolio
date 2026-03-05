@@ -76,7 +76,7 @@ const Nav = styled.nav`
 
 const MenuLink = styled(NavLink)`
   text-decoration: none;
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   font-weight: 600;
   padding: 10px 20px;
   margin: 0 8px;
