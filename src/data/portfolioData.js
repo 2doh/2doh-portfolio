@@ -154,18 +154,18 @@ export const featureData = [
     logic: "Input Optimization",
     path: "search",
   },
-  // {
-  //   id: 5,
-  //   title: "CRUD",
-  //   tag: "Axios",
-  //   desc: "REST API 통신을 통해 데이터의 생성, 조회, 수정, 삭제가 즉각 반영되는 시스템",
-  //   logic: "Array Methods & UUID",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Form Validation",
-  //   tag: "React Hook Form",
-  //   desc: "사용자 입력값을 정규표현식으로 검증하고 실시간 에러 메세지를 표기하는 UI",
-  //   logic: "UI Feedback",
-  // },
+  {
+    id: 5,
+    title: "CRUD",
+    tag: "Axios",
+    desc: "REST API 통신을 통해 데이터의 생성, 조회, 수정, 삭제가 즉각 반영되는 시스템",
+    logic: "Array Methods & UUID",
+  },
+  {
+    id: 6,
+    title: "Form Validation",
+    tag: "React Hook Form",
+    desc: "사용자 입력값을 정규표현식으로 검증하고 실시간 에러 메세지를 표기하는 UI",
+    logic: "UI Feedback",
+  },
 ];
