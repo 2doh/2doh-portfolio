@@ -103,7 +103,7 @@ const Brand = styled.span`
 const Title = styled.h4`
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   margin: 0;
   /* 말줄임 처리 */
   display: -webkit-box;
@@ -128,5 +128,5 @@ const Discount = styled.span`
 const Price = styled.span`
   font-size: 14px;
   font-weight: 800;
-  color: var(--color-text-primary);
+  color: var(--color-text);
 `;

@@ -24,11 +24,16 @@ const SearchDemo = () => {
     node => {
       if (!node) return;
       if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting && visibleCount < products.length) {
-          loadMoreItems();
-        }
-      });
+      observer.current = new IntersectionObserver(
+        entries => {
+          if (entries[0].isIntersecting && visibleCount < products.length) {
+            loadMoreItems();
+          }
+        },
+        {
+          rootMargin: "200px",
+        },
+      );
       observer.current.observe(node);
     },
     [products.length],
@@ -45,7 +50,7 @@ const SearchDemo = () => {
   const normalizeFunc = data =>
     data
       ?.trim()
-      .replace(/[^a-zA-Z0-9가-힣]/g, "")
+      .replace(/[^a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ]/g, "")
       .replace(/\s+/g, "")
       .toLocaleLowerCase("ko")
       .normalize("NFC") || "";
@@ -117,6 +122,12 @@ const SearchDemo = () => {
       {!isLoading && visibleCount >= products.length && products.length > 0 && (
         <EndOfList>모든 상품을 불러왔습니다.</EndOfList>
       )}
+
+      {!isLoading && filteredProducts.length === 0 && keyword && (
+        <EmptyList>
+          `{keyword}`에 대한 검색 결과가 없습니다. 다른 검색어를 입력해 보세요.
+        </EmptyList>
+      )}
     </Container>
   );
 };
@@ -155,4 +166,13 @@ const EndOfList = styled.div`
   padding: 40px;
   font-size: 14px;
   color: #ccc;
+`;
+
+const EmptyList = styled.div`
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
 `;
