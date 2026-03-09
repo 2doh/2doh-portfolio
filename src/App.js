@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import DarkModeDemo from "./components/feature/demo/DarkModeDemo";
 import WhiteBoardDemo from "./components/feature/demo/board/WhiteBoardDemo";
 import SpeechDemo from "./components/feature/demo/speech/SpeechDemo";
+import SearchDemo from "./components/feature/demo/search/SearchDemo";
 
 function App() {
   const isDarkMode = useThemeStore(state => state.isDarkMode);
@@ -33,6 +34,7 @@ function App() {
           <Route path="darkmode" element={<DarkModeDemo />} />
           <Route path="whiteboard" element={<WhiteBoardDemo />} />
           <Route path="speech" element={<SpeechDemo />} />
+          <Route path="search" element={<SearchDemo />} />
         </Route>
       </Routes>
     </BrowserRouter>

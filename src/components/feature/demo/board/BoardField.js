@@ -114,7 +114,7 @@ const CanvasField = styled.canvas`
   width: 100%;
   height: 100%;
   display: block;
-  background-color: var(--color-invert);
+  background-color: var(--color-card-bg);
   cursor: ${props => (props.cursor === "eraser" ? "crosshair" : "pencil")};
   touch-action: none;
 `;

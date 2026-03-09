@@ -64,6 +64,7 @@ html {
   --color-deep-brown: #4a3a2a;
   --color-soft-green: #e2f0d9;
   --color-invert: #f5f5f5;
+  --color-card-bg: #f5f5f5;
 }
 [data-theme="dark"] {
   --color-bg : #121212;
