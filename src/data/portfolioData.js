@@ -134,7 +134,7 @@ export const featureData = [
     id: 2,
     title: "Whiteboard",
     tag: "Canvas API",
-    desc: "드로잉 기능을 갖춘 실시간 화이트보드",
+    desc: "드로잉 기능을 갖춘 화이트보드",
     logic: "Coordinate Transformation",
     path: "whiteboard",
   },

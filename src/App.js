@@ -32,7 +32,7 @@ function App() {
         <Route path="/features" element={<FeaturePage />}>
           <Route path="darkmode" element={<DarkModeDemo />} />
           <Route path="whiteboard" element={<WhiteBoardDemo />} />
-          <Route path="speech/:step" element={<SpeechDemo />} />
+          <Route path="speech" element={<SpeechDemo />} />
         </Route>
       </Routes>
     </BrowserRouter>

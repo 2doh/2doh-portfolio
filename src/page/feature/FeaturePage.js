@@ -18,7 +18,7 @@ const FeaturePage = () => {
   const selectedFeature = featureData.find(item => item.path === currentPath);
 
   const handleCardClick = item => {
-    const targetPath = item.path === "speech" ? `${item.path}/1` : item.path;
+    const targetPath = item.path;
     navigate(`/features/${targetPath}`);
 
     setTimeout(() => {
