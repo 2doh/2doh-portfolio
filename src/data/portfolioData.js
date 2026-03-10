@@ -164,10 +164,10 @@ export const featureData = [
   },
   {
     id: 6,
-    title: "Scroll Interaction",
-    tag: "Frame Motion",
-    desc: "스크롤 위치에 따라 반응하며 변화하는 스토리텔링형 인터렉티브 UI",
-    logic: "Scroll Progress Interpolation",
+    title: "Virtual Scrolling",
+    tag: "Performance",
+    desc: "대량 데이터를 DOM 부하 없이 렌더링하는 리스트 UI",
+    logic: "Windowing & Coordinate Mapping",
     path: "virtualList",
   },
 ];
