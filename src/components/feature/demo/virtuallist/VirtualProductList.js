@@ -1,13 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-const VirtualProductList = ({ products }) => {
+const VirtualProductList = ({ products, virtualItems, totalSize }) => {
   return (
-    <ScrollRunway>
-      <VisibleContainer>
-        <ProductGrid>
-          {products.map(item => (
-            <ProductCard key={item.id}>
+    <ScrollRunway style={{ height: `${totalSize}px` }}>
+      {virtualItems.map(virtualRow => {
+        const item = products[virtualRow.index];
+        if (!item) return null;
+        return (
+          <VirtualItemWrapper
+            key={virtualRow.key}
+            style={{
+              height: `${virtualRow.size}px`,
+              transform: `translateY(${virtualRow.start}px)`,
+            }}
+          >
+            <ProductCard>
               <ImageArea>
                 <img src={item.thumbnail} alt={item.title} loading="lazy" />
                 {item.discountPercentage > 15 && <HotBadge>HOT</HotBadge>}
@@ -21,9 +29,9 @@ const VirtualProductList = ({ products }) => {
                 </PriceBox>
               </ContentArea>
             </ProductCard>
-          ))}
-        </ProductGrid>
-      </VisibleContainer>
+          </VirtualItemWrapper>
+        );
+      })}
     </ScrollRunway>
   );
 };
@@ -32,54 +40,39 @@ export default VirtualProductList;
 
 const ScrollRunway = styled.div`
   width: 100%;
-  height: ${props => props.height}px;
   position: relative;
 `;
 
-const VisibleContainer = styled.div`
-  width: 100%;
+const VirtualItemWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(${props => props.offset}px);
-  will-change: transform;
-`;
-
-const ProductGrid = styled.div`
-  display: grid;
   width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px 15px;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  padding: 16px 16px;
+  box-sizing: border-box;
 `;
 
 const ProductCard = styled.div`
   display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 12px;
+  background: white;
+  border-radius: 5px;
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
   &:hover {
-    border-color: var(--color-border);
+    border-color: #333;
     transform: translateY(-5px);
   }
 `;
 
 const ImageArea = styled.div`
   position: relative;
-  width: 100%;
+  width: 120px;
+  min-width: 120px;
   aspect-ratio: 1 / 1;
-  background: #f9f9f9;
+  background: var(--color-bg);
 
   img {
     width: 100%;
