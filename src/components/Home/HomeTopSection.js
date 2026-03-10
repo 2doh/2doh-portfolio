@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { profileData } from "../../data/portfolioData";
-import { Card, Grid } from "../../layout/Common/Layout";
+import { Card, Grid } from "../../layout/common/Layout";
 import ContactSection from "./ContactSection";
 
 const HomeTopSection = () => {

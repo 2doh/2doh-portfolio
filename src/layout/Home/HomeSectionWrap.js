@@ -1,4 +1,4 @@
-import { Wrap } from "../Common/Layout";
+import { Wrap } from "../common/Layout";
 
 const HomeSectionWrap = ({ children }) => {
   return <Wrap>{children}</Wrap>;

@@ -5,7 +5,7 @@ import ConfettiCannon from "./components/feature/demo/confetti/ConfettiCannon";
 import DarkModeDemo from "./components/feature/demo/DarkModeDemo";
 import SearchDemo from "./components/feature/demo/search/SearchDemo";
 import SpeechDemo from "./components/feature/demo/speech/SpeechDemo";
-import ScrollToTop from "./layout/Common/ScrollToTop";
+import ScrollToTop from "./layout/common/ScrollToTop";
 import Header from "./layout/Header";
 import { useThemeStore } from "./store/useThemeStore";
 import GlobalStyle from "./styles/GlobalStyle";
