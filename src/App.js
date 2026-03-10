@@ -7,12 +7,12 @@ import SearchDemo from "./components/feature/demo/search/SearchDemo";
 import SpeechDemo from "./components/feature/demo/speech/SpeechDemo";
 import ScrollToTop from "./layout/Common/ScrollToTop";
 import Header from "./layout/Header";
-import FeaturePage from "./page/feature/FeaturePage";
-import ProjectsPage from "./page/projects/ProjectsPage";
 import { useThemeStore } from "./store/useThemeStore";
 import GlobalStyle from "./styles/GlobalStyle";
 import VurtualListDemo from "./components/feature/demo/virtuallist/VurtualListDemo";
 import HomePage from "./page/home/HomePage";
+import ProjectsPage from "./page/projects/ProjectsPage";
+import FeaturePage from "./page/feature/FeaturePage";
 
 function App() {
   const isDarkMode = useThemeStore(state => state.isDarkMode);
