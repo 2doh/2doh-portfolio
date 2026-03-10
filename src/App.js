@@ -11,8 +11,8 @@ import { useThemeStore } from "./store/useThemeStore";
 import GlobalStyle from "./styles/GlobalStyle";
 import VurtualListDemo from "./components/feature/demo/virtuallist/VurtualListDemo";
 import HomePage from "./page/home/HomePage";
-import FeaturePage from "./page/feature/FeaturePage";
 import ProjectsPage from "./page/project/ProjectsPage";
+import FeaturePage from "./page/feature/FeaturePage";
 
 function App() {
   const isDarkMode = useThemeStore(state => state.isDarkMode);
