@@ -97,6 +97,7 @@ const FeatureCardWrap = styled.div`
         align-items: center;
         justify-content: center;
         transition: all 0.3s;
+        color: var(--color-text);
       }
     }
   }
@@ -107,7 +108,6 @@ const FeatureCardWrap = styled.div`
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
 
     .circle-arrow {
-      background: var(--color-accent-mint);
       transform: rotate(-45deg);
     }
   }
