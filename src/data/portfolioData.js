@@ -168,6 +168,6 @@ export const featureData = [
     tag: "Frame Motion",
     desc: "스크롤 위치에 따라 반응하며 변화하는 스토리텔링형 인터렉티브 UI",
     logic: "Scroll Progress Interpolation",
-    path: "scroll",
+    path: "virtualList",
   },
 ];

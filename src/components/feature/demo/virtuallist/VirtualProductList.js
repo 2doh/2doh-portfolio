@@ -1,34 +1,49 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProductList = ({ products, lastCardRef, visibleCount }) => {
+const VirtualProductList = ({ products }) => {
   return (
-    <ProductGrid>
-      {products.slice(0, visibleCount).map((item, idx, arr) => {
-        const isLast = idx === arr.length - 1;
-        return (
-          <ProductCard key={item.id} ref={isLast ? lastCardRef : undefined}>
-            <ImageArea>
-              <img src={item.thumbnail} alt={item.title} />
-              {item.discountPercentage > 15 && <HotBadge>HOT</HotBadge>}
-            </ImageArea>
-
-            <ContentArea>
-              <Brand>{item.brand}</Brand>
-              <Title>{item.title}</Title>
-              <PriceBox>
-                <Discount>{Math.round(item.discountPercentage)}%</Discount>
-                <Price>${item.price.toLocaleString()}</Price>
-              </PriceBox>
-            </ContentArea>
-          </ProductCard>
-        );
-      })}
-    </ProductGrid>
+    <ScrollRunway>
+      <VisibleContainer>
+        <ProductGrid>
+          {products.map(item => (
+            <ProductCard key={item.id}>
+              <ImageArea>
+                <img src={item.thumbnail} alt={item.title} loading="lazy" />
+                {item.discountPercentage > 15 && <HotBadge>HOT</HotBadge>}
+              </ImageArea>
+              <ContentArea>
+                <Brand>{item.brand}</Brand>
+                <Title>{item.title}</Title>
+                <PriceBox>
+                  <Discount>{Math.round(item.discountPercentage)}%</Discount>
+                  <Price>${item.price.toLocaleString()}</Price>
+                </PriceBox>
+              </ContentArea>
+            </ProductCard>
+          ))}
+        </ProductGrid>
+      </VisibleContainer>
+    </ScrollRunway>
   );
 };
 
-export default ProductList;
+export default VirtualProductList;
+
+const ScrollRunway = styled.div`
+  width: 100%;
+  height: ${props => props.height}px;
+  position: relative;
+`;
+
+const VisibleContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(${props => props.offset}px);
+  will-change: transform;
+`;
 
 const ProductGrid = styled.div`
   display: grid;

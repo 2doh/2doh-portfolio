@@ -1,5 +1,5 @@
 import confetti from "canvas-confetti";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const ConfettiCannon = () => {
@@ -61,6 +61,13 @@ const ConfettiCannon = () => {
     setDragStart(null);
     setDragEnd(null);
   };
+
+  // 클린업
+  useEffect(() => {
+    return () => {
+      confetti.reset();
+    };
+  }, []);
 
   return (
     <CanvasWrapper
