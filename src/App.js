@@ -5,15 +5,15 @@ import ConfettiCannon from "./components/feature/demo/confetti/ConfettiCannon";
 import DarkModeDemo from "./components/feature/demo/DarkModeDemo";
 import SearchDemo from "./components/feature/demo/search/SearchDemo";
 import SpeechDemo from "./components/feature/demo/speech/SpeechDemo";
+import VurtualListDemo from "./components/feature/demo/virtuallist/VurtualListDemo";
 import ScrollToTop from "./layout/common/ScrollToTop";
 import Header from "./layout/Header";
-import { useThemeStore } from "./store/useThemeStore";
-import GlobalStyle from "./styles/GlobalStyle";
-import VurtualListDemo from "./components/feature/demo/virtuallist/VurtualListDemo";
+import FeaturePage from "./page/feature/FeaturePage";
 import HomePage from "./page/home/HomePage";
 import ProjectsPage from "./page/project/ProjectsPage";
-import FeaturePage from "./page/feature/FeaturePage";
-import TestPage from "./TestPage";
+import { useThemeStore } from "./store/useThemeStore";
+import GlobalStyle from "./styles/GlobalStyle";
+import NotFound from "./page/NotFound";
 
 function App() {
   const isDarkMode = useThemeStore(state => state.isDarkMode);
@@ -31,7 +31,6 @@ function App() {
       <GlobalStyle />
       <Header />
       <Routes>
-        <Route path="/test" element={<TestPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/features" element={<FeaturePage />}>
@@ -42,6 +41,7 @@ function App() {
           <Route path="confetti" element={<ConfettiCannon />} />
           <Route path="virtualList" element={<VurtualListDemo />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
