@@ -23,7 +23,7 @@ const HeaderWrap = styled.header`
   top: 0;
   width: 100%;
   height: 70px;
-  background: rgba(255, 255, 255, 0.85);
+  background: #fff;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;

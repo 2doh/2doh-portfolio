@@ -11,13 +11,13 @@ export const Card = styled.div`
   padding: 30px;
   border-radius: 24px;
   border: 1px solid var(--color-border);
-
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
 
+  transition: transform 0.3s ease;
+
   &:hover {
-    border-color: var(--color-accent-mint);
-    box-shadow: 0 15px 35px rgba(153, 170, 140, 0.1);
+    transform: translateY(-10px) !important;
   }
 `;
 

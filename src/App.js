@@ -13,6 +13,7 @@ import VurtualListDemo from "./components/feature/demo/virtuallist/VurtualListDe
 import HomePage from "./page/home/HomePage";
 import ProjectsPage from "./page/project/ProjectsPage";
 import FeaturePage from "./page/feature/FeaturePage";
+import TestPage from "./TestPage";
 
 function App() {
   const isDarkMode = useThemeStore(state => state.isDarkMode);
@@ -30,6 +31,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Routes>
+        <Route path="/test" element={<TestPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/features" element={<FeaturePage />}>
